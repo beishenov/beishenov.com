@@ -1,0 +1,72 @@
+/* Site-specific additions layered on top of the mirrored Adobe Portfolio CSS. */
+
+/* Images are no longer lazy-loaded via JS; let them size naturally. */
+.project-module.image img.js-lazy {
+  height: auto;
+  background: transparent;
+}
+
+/* Lightbox */
+.site-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.96);
+  cursor: zoom-out;
+}
+
+.site-lightbox.is-open {
+  display: flex;
+}
+
+.site-lightbox__figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 94vw;
+  max-height: 94vh;
+}
+
+.site-lightbox__img {
+  max-width: 94vw;
+  max-height: 88vh;
+  object-fit: contain;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+}
+
+.site-lightbox__caption {
+  margin-top: 12px;
+  font: 400 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+.site-lightbox button {
+  position: absolute;
+  border: 0;
+  background: rgba(0, 0, 0, 0.05);
+  color: #111;
+  font: 400 32px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.site-lightbox button:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.site-lightbox__close { top: 20px; right: 20px; }
+.site-lightbox__prev  { left: 20px; top: 50%; transform: translateY(-50%); }
+.site-lightbox__next  { right: 20px; top: 50%; transform: translateY(-50%); }
+
+@media (max-width: 600px) {
+  .site-lightbox__prev,
+  .site-lightbox__next { display: none; }
+}
