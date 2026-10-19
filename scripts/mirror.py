@@ -6,7 +6,7 @@ Adobe Portfolio runtime, and rewrites the HTML so it works from any static host.
 
 Usage:
   python3 scripts/mirror.py                                   # beishenov.com -> repo root
-  python3 scripts/mirror.py https://asanaly.beishenov.com asanaly
+  python3 scripts/mirror.py https://asanaly.beishenov.com ../asanaly.beishenov.com
 """
 from __future__ import annotations
 
@@ -167,7 +167,7 @@ def main() -> None:
 
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("site", nargs="?", default=SITE, help="site origin, e.g. https://beishenov.com")
-    ap.add_argument("out", nargs="?", default=".", help="output directory relative to the repo root")
+    ap.add_argument("out", nargs="?", default=".", help="output directory (relative to the repo root, or absolute)")
     args = ap.parse_args()
 
     SITE = args.site.rstrip("/")
